@@ -1,0 +1,27 @@
+* {
+    background-color: #000000;
+}
+
+/* Central Constraint Container */
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Prevents elements from touching screen edges on mobile */
+}
+
+/* Full-Bleed Header Outer */
+.header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Inner Header Content Alignment */
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
