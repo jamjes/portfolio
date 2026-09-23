@@ -1,0 +1,6 @@
+/* 5. SIDEBAR / PROFILE CARD STYLING */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
