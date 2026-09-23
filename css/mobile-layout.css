@@ -1,0 +1,14 @@
+/* 12. RESPONSIVE / MOBILE LAYOUT */
+@media (max-width: 768px) {
+    .bento-container {
+    grid-template-columns: 1fr; /* Stack into 1 main column */
+    }
+    
+    .feed-grid {
+    grid-template-columns: 1fr; /* Stack right grid cards */
+    }
+
+    .span-2 {
+    grid-column: span 1;
+    }
+}
