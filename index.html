@@ -1,12 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jam Jes | Unity Developer Portfolio</title>
+  
+  <!-- Modern clean font (Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome for standard icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- =================================================================== -->
+  <!-- CSS STYLES (Easily edit colors and fonts at the top!) -->
+  <!-- =================================================================== -->
+  <style>
+    /* 1. COLOR & THEMING VARIABLES - Change your look here! */
+    :root {
+      --bg-color: #0f172a;          /* Dark sleek background */
+      --card-bg: #1e293b;           /* Dark card background */
+      --card-hover: #26334d;        /* Slight highlight on hover */
+      --text-main: #f8fafc;         /* White text */
+      --text-muted: #94a3b8;        /* Soft grey text */
+      --accent: #6366f1;            /* Primary Indigo accent */
+      --accent-hover: #4f46e5;      /* Darker indigo */
+      --border-color: #334155;      /* Subtle border line */
+      --radius: 16px;               /* Corner roundness */
+      --font: 'Inter', sans-serif;
+    }
+
+    /* 2. BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: var(--font);
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    /* 3. MAIN BENTO LAYOUT (2 Columns on Desktop, 1 on Mobile) */
+    .bento-container {
+      display: grid;
+      grid-template-columns: 300px 1fr; /* Left Sidebar: 300px, Right Content: Rest */
+      gap: 20px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    /* Right column holds grid of cards */
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 equal columns on the right */
+      gap: 20px;
+    }
+
+    /* Make large featured cards span full width of right grid */
+    .span-2 {
+      grid-column: span 2;
+    }
+
+    /* 4. CARD STYLING */
+    .bento-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .bento-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* 5. SIDEBAR / PROFILE CARD STYLING */
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .avatar-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .profile-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .profile-title {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .profile-location {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 6px;
+    }
+
+    .bio-text {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-top: 16px;
+    }
+
+    /* 6. BUTTONS & LINKS */
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 7. TAG PILLS */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    /* 8. FEATURED PROJECT MEDIA PLACEHOLDER */
+    .card-media {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #312e81 0%, #1e1b4b 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a5b4fc;
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* 9. CARD HEADINGS & TEXT */
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* 10. MICRO PROJECTS LIST */
+    .micro-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .micro-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: background 0.2s ease;
+    }
+
+    .micro-item:hover {
+      background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .micro-info h4 {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .micro-info p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* 11. BULLET LIST FOR EXPERIENCE */
+    .bullet-list {
+      list-style-type: none;
+      margin-top: 10px;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .bullet-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    /* 12. RESPONSIVE / MOBILE LAYOUT */
+    @media (max-width: 768px) {
+      .bento-container {
+        grid-template-columns: 1fr; /* Stack into 1 main column */
+      }
+      
+      .feed-grid {
+        grid-template-columns: 1fr; /* Stack right grid cards */
+      }
+
+      .span-2 {
+        grid-column: span 1;
+      }
+    }
+  </style>
 </head>
 <body>
 
-</main>
+  <!-- MAIN CONTAINER -->
+  <div class="bento-container">
+
+    <!-- =================================================================== -->
+    <!-- LEFT SIDEBAR: PROFILE CARD                                          -->
+    <!-- =================================================================== -->
+    <aside class="sidebar">
+      <div class="bento-card">
+        
+        <!-- Profile Image Placeholder (Replace src with your image file/URL) -->
+        <img src="https://placehold.co/120x120/312e81/a5b4fc?text=Jam" alt="Jam Jes" class="avatar-img">
+        
+        <!-- Name & Title -->
+        <h1 class="profile-name">Jam Jes</h1>
+        <p class="profile-title">Unity Developer & Gameplay Programmer</p>
+        <p class="profile-location"><i class="fa-solid fa-location-dot"></i> West Midlands, UK</p>
+        
+        <!-- Bio -->
+        <p class="bio-text">
+          Building commercial gameplay systems, custom mechanics, and UI logic in C#. Currently at Till The End Games Ltd.
+        </p>
+
+        <!-- Tech Stack Tags -->
+        <div class="tags">
+          <span class="tag">Unity</span>
+          <span class="tag">C#</span>
+          <span class="tag">Shader Graph</span>
+          <span class="tag">Git</span>
+        </div>
+
+        <!-- Social Links / Buttons -->
+        <div class="btn-group">
+          <a href="https://linkedin.com" target="_blank" class="btn btn-secondary">
+            <i class="fa-brands fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/jamjes" target="_blank" class="btn btn-secondary">
+            <i class="fa-brands fa-github"></i> GitHub
+          </a>
+          <a href="mailto:jesurasa.jam@outlook.com" class="btn btn-primary">
+            <i class="fa-solid fa-envelope"></i> Contact Me
+          </a>
+        </div>
+
+      </div>
+    </aside>
+
+    <!-- =================================================================== -->
+    <!-- RIGHT GRID: CARDS FEED                                              -->
+    <!-- =================================================================== -->
+    <main class="feed-grid">
+
+      <!-- CARD 1: FEATURED COMMERCIAL PROJECT (Spans full width) -->
+      <section class="bento-card span-2">
+        <!-- Media / Screenshot Banner -->
+        <div class="card-media">
+          <i class="fa-solid fa-gamepad"></i>
+          <!-- To use an image instead, replace icon with: <img src="your-game-screenshot.png" alt="Kingdoms of Arailia"> -->
+        </div>
+
+        <p class="card-subtitle">FEATURED COMMERCIAL WORK</p>
+        <h2 class="card-title">Kingdoms of Arailia</h2>
+        <p class="card-desc">
+          Professional work at <strong>Till The End Games Ltd</strong>. Responsible for core player mechanics, C# state machines, AI pathfinding integration, and rendering performance optimizations.
+        </p>
+
+        <div class="tags" style="margin-top: 14px;">
+          <span class="tag">Unity 3D</span>
+          <span class="tag">C#</span>
+          <span class="tag">Gameplay Systems</span>
+          <span class="tag">UI Toolkit</span>
+        </div>
+      </section>
+
+
+      <!-- CARD 2: MICRO PROJECTS CONTAINER -->
+      <section class="bento-card">
+        <h3 class="card-title"><i class="fa-solid fa-code-branch"></i> Pinned Repositories</h3>
+        <p class="card-desc">Selected micro-projects and code samples.</p>
+
+        <div class="micro-list">
+          
+          <!-- Micro Project 1 -->
+          <a href="https://github.com/jamjes/magjump" target="_blank" class="micro-item">
+            <div class="micro-info">
+              <h4>magjump</h4>
+              <p>2D magnetic attraction mechanic</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
+          </a>
+
+          <!-- Micro Project 2 -->
+          <a href="https://github.com/jamjes" target="_blank" class="micro-item">
+            <div class="micro-info">
+              <h4>JHgameoff2023</h4>
+              <p>2D action game jam submission</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
+          </a>
+
+          <!-- Micro Project 3 -->
+          <a href="https://github.com/jamjes" target="_blank" class="micro-item">
+            <div class="micro-info">
+              <h4>A* Pathfinding Demo</h4>
+              <p>Grid pathing & editor Gizmos</p>
+            </div>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- CARD 3: EXPERIENCE / ABOUT -->
+      <section class="bento-card">
+        <h3 class="card-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
+        
+        <div style="margin-top: 10px;">
+          <p style="font-size: 0.9rem; font-weight: 600;">Gameplay Programmer</p>
+          <p style="font-size: 0.8rem; color: var(--accent);">Till The End Games Ltd</p>
+        </div>
+
+        <ul class="bullet-list">
+          <li>Developing core player mechanics and camera controllers in C#.</li>
+          <li>Optimizing gameplay loops and reducing memory allocations.</li>
+          <li>Collaborating with designers to implement UI Toolkit screens.</li>
+        </ul>
+      </section>
+
+      <!-- CARD 4: CALL TO ACTION / CONTACT (Spans full width) -->
+      <section class="bento-card span-2" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h3 class="card-title">Let's Connect!</h3>
+          <p class="card-desc">Open to gameplay engineering discussions, contract work, or questions.</p>
+        </div>
+        
+        <a href="mailto:jesurasa.jam@outlook.com" class="btn btn-primary">
+          <i class="fa-solid fa-paper-plane"></i> Send an Email
+        </a>
+      </section>
+
+    </main>
+
+  </div>
+
 </body>
 </html>
