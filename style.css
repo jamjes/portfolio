@@ -145,6 +145,14 @@ body {
     border-radius: 12px 12px 0 0;
 }
 
+.project-media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px 12px 0 0;
+}
+
 .project-card:hover {
     border-color: #444444;
     transform: translateY(-2px);
