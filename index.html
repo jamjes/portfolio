@@ -1,167 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jam Jes | Unity Developer Portfolio</title>
-  
-  <!-- Modern clean font (Inter) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome for standard icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <!-- CSS STYLES -->
-  <link rel="stylesheet" href="./css/main.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jam Jesurasa | Gameplay Programmer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-  <!-- MAIN CONTAINER -->
-  <div class="bento-container">
-
-    <!-- =================================================================== -->
-    <!-- LEFT SIDEBAR: PROFILE CARD                                          -->
-    <!-- =================================================================== -->
-    <aside class="sidebar">
-      <div class="bento-card">
-        
-        <!-- Profile Image -->
-        <img src="./media/profile-image.jpg" alt="Jam Jes" class="avatar-img">
-        
-        <!-- Name & Title -->
-        <h1 class="profile-name">Jam Jesurasa</h1>
-        <p class="profile-title">Senior Unity Developer</p>
-        <p class="profile-title">@ Till The End Games Ltd</p>
-        <p class="profile-location"><i class="fa-solid fa-location-dot"></i> West Midlands, UK</p>
-        
-        <!-- Bio -->
-        <p class="bio-text">
-          Building commercial gameplay systems, custom mechanics, and UI logic in C#.
-        </p>
-
-        <!-- Tech Stack Tags -->
-        <div class="tags">
-          <span class="tag">Unity</span>
-          <span class="tag">C#</span>
-          <span class="tag">Shader Graph</span>
-          <span class="tag">Git</span>
-        </div>
-
-        <!-- Social Links / Buttons -->
-        <div class="btn-group">
-          <a href="https://linkedin.com" target="_blank" class="btn btn-secondary">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/jamjes" target="_blank" class="btn btn-secondary">
-            <i class="fa-brands fa-github"></i> GitHub
-          </a>
-          <a href="mailto:jesurasa.jam@outlook.com" class="btn btn-primary">
-            <i class="fa-solid fa-envelope"></i> Contact Me
-          </a>
-        </div>
-
-      </div>
-      
-    </aside>
-
-    <!-- =================================================================== -->
-    <!-- RIGHT GRID: CARDS FEED                                              -->
-    <!-- =================================================================== -->
-    <main class="feed-grid">
-
-      <!-- CARD 1: FEATURED COMMERCIAL PROJECT (Spans full width) -->
-      <section class="bento-card span-2">
-        <!-- Media / Screenshot Banner -->
-        <div class="card-media">
-          <i class="fa-solid fa-gamepad"></i>
-          <!-- To use an image instead, replace icon with: <img src="your-game-screenshot.png" alt="Kingdoms of Arailia"> -->
-        </div>
-
-        <p class="card-subtitle">FEATURED COMMERCIAL WORK</p>
-        <h2 class="card-title">Kingdoms of Arailia</h2>
-        <p class="card-desc">
-          Professional work at <strong>Till The End Games Ltd</strong>. Responsible for core player mechanics, C# state machines, AI pathfinding integration, and rendering performance optimizations.
-        </p>
-
-        <div class="tags" style="margin-top: 14px;">
-          <span class="tag">Unity 3D</span>
-          <span class="tag">C#</span>
-          <span class="tag">Gameplay Systems</span>
-          <span class="tag">UI Toolkit</span>
-        </div>
-      </section>
-
-      <!-- CARD 2: MICRO PROJECTS CONTAINER -->
-      <section class="bento-card">
-        <h3 class="card-title"><i class="fa-solid fa-code-branch"></i> Pinned Repositories</h3>
-        <p class="card-desc">Selected micro-projects and code samples.</p>
-
-        <div class="micro-list">
-          
-          <!-- Micro Project 1 -->
-          <a href="https://github.com/jamjes/magjump" target="_blank" class="micro-item">
-            <div class="micro-info">
-              <h4>magjump</h4>
-              <p>2D magnetic attraction mechanic</p>
+    <main class="container">
+        <section class="hero">
+            <h1 class="name">
+                Jam<br>Jesurasa
+            </h1>
+            
+            <p class="bio">
+                Gameplay Programmer specializing in Unity and C#. 
+                I build responsive player controls, clean gameplay 
+                systems, and polished game feel for studios.
+            </p>
+            
+            <div class="location">
+                <span>📍 West Midlands, UK</span>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
-          </a>
 
-          <!-- Micro Project 2 -->
-          <a href="https://github.com/jamjes" target="_blank" class="micro-item">
-            <div class="micro-info">
-              <h4>JHgameoff2023</h4>
-              <p>2D action game jam submission</p>
+            <div class="stack">
+                <span>Unity</span> • <span>C#</span> • <span>Git</span> • <span>Jira</span>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
-          </a>
 
-          <!-- Micro Project 3 -->
-          <a href="https://github.com/jamjes" target="_blank" class="micro-item">
-            <div class="micro-info">
-              <h4>A* Pathfinding Demo</h4>
-              <p>Grid pathing & editor Gizmos</p>
+            <div class="actions">
+                <a href="https://github.com/jamjes" target="_blank" class="icon-btn" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                
+                <a href="https://linkedin.com/in/jam-jesurasa" target="_blank" class="icon-btn" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                
+                <a href="mailto:jam_jesurasa@outlook.com" class="btn-hire">
+                    Hire me
+                </a>
             </div>
-            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; color: var(--text-muted);"></i>
-          </a>
+        </section>
+        <section class="projects-grid">
+            <div class="project-card">
+                <img src="koa-cover.jpg" alt="Kingdoms of Arailia Cover Art">
+                
+                <div class="project-text">
+                    <h2 class="card-title">Kingdoms of Arailia</h2>
+                    <div class="pill-badge">
+                        <p>Professional</p>
+                    </div>
+                    <p class="tech-stack">Unity 6 • C#</p>
+                    <p class="card-desc">
+                        A strategy deck-construction card game where every card, 
+                        movement, and decision matters - with skill, not spending, 
+                        winning battles.
+                    </p>
 
-        </div>
-      </section>
+                    <p class="tech-stack">Role: Senior Unity Developer</p>
+                    <p class="card-bullets">
+                        • Architected core card-game logic and UI integration in C# 
+                        for commercial release. 
+                    </p>
+                    <p class="card-bullets">
+                        • Worked with designers and artists via ClickUp to iterate on 
+                        abstract mechanics and state driven game loops.
+                    </p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="echo-cover.jpg" alt="Kingdoms of Arailia Cover Art">
+                
+                <div class="project-text">
+                    <h2 class="card-title">ECHO</h2>
+                    <div class="pill-badge">
+                        <p>Award Winner</p>
+                    </div>
+                    <p class="tech-stack">Unity 6 • C#</p>
+                    <p class="card-desc">
+                        Time-rewind platformer SDK.
+                    </p>
 
-      <!-- CARD 3: EXPERIENCE / ABOUT -->
-      <section class="bento-card">
-        <h3 class="card-title"><i class="fa-solid fa-briefcase"></i> Experience</h3>
-        
-        <div style="margin-top: 10px;">
-          <p style="font-size: 0.9rem; font-weight: 600;">Gameplay Programmer</p>
-          <p style="font-size: 0.8rem; color: var(--accent);">Till The End Games Ltd</p>
-        </div>
-
-        <ul class="bullet-list">
-          <li>Developing core player mechanics and camera controllers in C#.</li>
-          <li>Optimizing gameplay loops and reducing memory allocations.</li>
-          <li>Collaborating with designers to implement UI Toolkit screens.</li>
-        </ul>
-      </section>
-
-      <!-- CARD 4: CALL TO ACTION / CONTACT (Spans full width) -->
-      <section class="bento-card span-2" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-        <div>
-          <h3 class="card-title">Let's Connect!</h3>
-          <p class="card-desc">Open to gameplay engineering discussions, contract work, or questions.</p>
-        </div>
-        
-        <a href="mailto:jesurasa.jam@outlook.com" class="btn btn-primary">
-          <i class="fa-solid fa-paper-plane"></i> Send an Email
-        </a>
-      </section>
-
+                    <p class="tech-stack">Role: Gameplay Programmer</p>
+                    <p class="card-bullets">
+                        • Engineered a 2D time-rewind platformer mechanic in 
+                        Unity using a custom circular buffer data structure
+                    </p>
+                    <p class="card-bullets">
+                        • Awarded 1st Place for Technical Design at GradEx 2022. 
+                        [Source Code Available]
+                    </p>
+                </div>
+            </div>
+        </section>
     </main>
-
-  </div>
-
 </body>
 </html>
